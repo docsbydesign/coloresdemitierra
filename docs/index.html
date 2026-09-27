@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Colores de mi Tierra | Próximamente / Coming Soon</title>
+    <meta name="description" content="Colores de mi Tierra: nuestra tienda abre pronto. Our shop is opening soon.">
+    <meta property="og:title" content="Colores de mi Tierra">
+    <meta property="og:description" content="Nuestra tienda abre pronto. / Our shop is opening soon.">
+    <meta property="og:image" content="images/cdmt-splash.jpg">
+    <meta name="theme-color" content="#0b0b0f">
+    <link rel="preload" as="image" href="images/cdmt-splash.jpg">
+    <style>
+        :root {
+            --yellow: #fcd116;
+            --blue: #003893;
+            --red: #ce1126;
+            --ink: #0b0b0f;
+            --paper: #fffdf7;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body { height: 100%; margin: 0; }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 2rem 1.25rem 3rem;
+            text-align: center;
+            isolation: isolate;
+        }
+
+        .hero__image {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 0%;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background:
+                linear-gradient(to top,
+                    rgba(11, 11, 15, 0.97) 0%,
+                    rgba(11, 11, 15, 0.93) 38%,
+                    rgba(11, 11, 15, 0.6) 58%,
+                    rgba(11, 11, 15, 0) 82%);
+        }
+
+        .flag {
+            display: flex;
+            width: min(11rem, 40vw);
+            height: 6px;
+            margin: 0 auto 1.5rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .flag span:nth-child(1) { flex: 2; background: var(--yellow); }
+        .flag span:nth-child(2) { flex: 1; background: var(--blue); }
+        .flag span:nth-child(3) { flex: 1; background: var(--red); }
+
+        h1 {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 400;
+            font-size: clamp(2rem, 9vw, 6rem);
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+            text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+        }
+        h1 em {
+            font-style: italic;
+            color: var(--yellow);
+        }
+
+        .soon {
+            margin: 1.75rem 0 0;
+            font-size: clamp(0.8rem, 2.2vw, 1rem);
+            font-weight: 600;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+        }
+
+        .message {
+            margin: 1rem auto 0;
+            max-width: 34rem;
+            font-size: clamp(1rem, 2.6vw, 1.2rem);
+            line-height: 1.55;
+            color: rgba(255, 253, 247, 0.9);
+        }
+        .message [lang="en"] {
+            display: block;
+            margin-top: 0.35rem;
+            font-style: italic;
+            color: rgba(255, 253, 247, 0.72);
+        }
+
+        .domain {
+            margin: 2.25rem 0 0;
+            font-size: 0.85rem;
+            letter-spacing: 0.14em;
+            color: rgba(255, 253, 247, 0.6);
+        }
+
+        @media (min-width: 900px) {
+            .hero { padding-bottom: 4.5rem; }
+            .hero::before {
+                background:
+                    linear-gradient(to top,
+                        rgba(11, 11, 15, 0.92) 0%,
+                        rgba(11, 11, 15, 0.7) 35%,
+                        rgba(11, 11, 15, 0.15) 70%,
+                        rgba(11, 11, 15, 0) 100%);
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero__content > * {
+                opacity: 0;
+                transform: translateY(12px);
+                animation: rise 0.8s ease-out forwards;
+            }
+            .hero__content > :nth-child(2) { animation-delay: 0.1s; }
+            .hero__content > :nth-child(3) { animation-delay: 0.25s; }
+            .hero__content > :nth-child(4) { animation-delay: 0.4s; }
+            .hero__content > :nth-child(5) { animation-delay: 0.55s; }
+            @keyframes rise { to { opacity: 1; transform: none; } }
+        }
+    </style>
+</head>
+<body>
+    <main class="hero">
+        <img class="hero__image"
+             src="images/cdmt-splash.jpg"
+             alt="Cuatro pulseras tejidas con chaquiras en amarillo, azul y rojo sobre un soporte de terciopelo negro. Four beaded bracelets in yellow, blue and red on a black velvet stand.">
+
+        <div class="hero__content">
+            <div class="flag" aria-hidden="true"><span></span><span></span><span></span></div>
+            <h1>Colores de <em>mi</em> Tierra</h1>
+            <p class="soon"><span>Próximamente</span> · <span lang="en">Coming soon</span></p>
+            <p class="message">
+                Nuestra tienda abre pronto.
+                <span lang="en">Our shop is opening soon.</span>
+            </p>
+            <p class="domain">coloresdemitierra.com</p>
+        </div>
+    </main>
+</body>
+</html>
